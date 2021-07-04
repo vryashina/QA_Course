@@ -1,0 +1,42 @@
+Linux terminal (GitBash) commands
+
+1) Посмотреть где я - pwd
+2) Создать папку - mkdir test
+3) Зайти в папку - cd test
+4) Создать 3 папки - mkdir test1 test2 test3
+5) Зайти в любую папку - cd test1
+6) Создать 5 файлов (3 txt, 2 json) - touch 1.txt 2.txt 3.txt 4.json 5.json
+7) Создать 3 папки - mkdir folder1 folder2 folder3
+8) Вывести список содержимого папки - ls ; ls -la
+9) + Открыть любой txt файл - vim 1.txt
+10) + написать туда что-нибудь, любой текст - нажать i на клавиатуре, выйти из режима редактирования esc
+11) + сохранить и выйти - :wq!
+12) Выйти из папки на уровень выше - cd ..
+— 
+13) переместить любые 2 файла, которые вы создали, в любую другую папку.- mv 2.txt /c/Users/User/test/test2  ; mv 3.txt /c/Users/User/test/test3
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку.- cp 4.json /c/Users/User/test/test2 ; cp 5.json /c/Users/User/test/test3
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает. - tail -f 2.txt
+17) вывести несколько первых строк из текстового файла - head -n 5 2.txt
+18) вывести несколько последних строк из текстового файла - tail -n 5 2.txt
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает - less 2.txt
+20) вывести дату и время - date
+
+Задание *
+1) Отправить http запрос на сервер.
+https://api.quarantine.country/api/v1/regions - curl -s -o /dev/null -w "%{http_code}" https://api.quarantine.country/api/v1/regions; вернулся код 200
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+
+#!/bin/bash
+cd testqa
+mkdir t1 t2 t3
+cd t1
+touch q1.txt q2.txt q3.txt q4.json q5.json
+mkdir t4 t5 t6
+ls -la
+mv q1.txt /c/Users/User/testqa/t2
+mv q2.txt /c/Users/User/testqa/t3
+
+
+
+
+
