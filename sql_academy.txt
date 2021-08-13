@@ -1,101 +1,101 @@
-Задание 1
-Вывести имена всех когда-либо обслуживаемых пассажиров авиакомпаний
+Р—Р°РґР°РЅРёРµ 1
+Г‚Г»ГўГҐГ±ГІГЁ ГЁГ¬ГҐГ­Г  ГўГ±ГҐГµ ГЄГ®ГЈГ¤Г -Г«ГЁГЎГ® Г®ГЎГ±Г«ГіГ¦ГЁГўГ ГҐГ¬Г»Гµ ГЇГ Г±Г±Г Г¦ГЁГ°Г®Гў Г ГўГЁГ ГЄГ®Г¬ГЇГ Г­ГЁГ©
 
 select name from passenger
 
-Задание 2
-Вывести названия всеx авиакомпаний
+Г‡Г Г¤Г Г­ГЁГҐ 2
+Г‚Г»ГўГҐГ±ГІГЁ Г­Г Г§ГўГ Г­ГЁГї ГўГ±ГҐx Г ГўГЁГ ГЄГ®Г¬ГЇГ Г­ГЁГ©
 
 select name from company
 
-Задание 3
-Вывести все рейсы, совершенные из Москвы
+Г‡Г Г¤Г Г­ГЁГҐ 3
+Г‚Г»ГўГҐГ±ГІГЁ ГўГ±ГҐ Г°ГҐГ©Г±Г», Г±Г®ГўГҐГ°ГёГҐГ­Г­Г»ГҐ ГЁГ§ ГЊГ®Г±ГЄГўГ»
 
 select * from Trip
 where town_from = 'Moscow'
 
-Задание 4
-Вывести имена людей, которые заканчиваются на "man"
+Г‡Г Г¤Г Г­ГЁГҐ 4
+Г‚Г»ГўГҐГ±ГІГЁ ГЁГ¬ГҐГ­Г  Г«ГѕГ¤ГҐГ©, ГЄГ®ГІГ®Г°Г»ГҐ Г§Г ГЄГ Г­Г·ГЁГўГ ГѕГІГ±Гї Г­Г  "man"
 
 select name from Passenger
 where name like '%man'
 
-Задание 5
-Вывести количество рейсов, совершенных на TU-134
+Г‡Г Г¤Г Г­ГЁГҐ 5
+Г‚Г»ГўГҐГ±ГІГЁ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г°ГҐГ©Г±Г®Гў, Г±Г®ГўГҐГ°ГёГҐГ­Г­Г»Гµ Г­Г  TU-134
 
 select count(plane) as count from Trip
 where plane = 'TU-134'
 
-задание 6
-Какие компании совершали перелеты на Boeing
+Г§Г Г¤Г Г­ГЁГҐ 6
+ГЉГ ГЄГЁГҐ ГЄГ®Г¬ГЇГ Г­ГЁГЁ Г±Г®ГўГҐГ°ГёГ Г«ГЁ ГЇГҐГ°ГҐГ«ГҐГІГ» Г­Г  Boeing
 
 select distinct name from company
 join trip on company.id = trip.company
 where plane = 'Boeing'
 
-Задание 7
-Вывести все названия самолётов, на которых можно улететь в Москву (Moscow)
+Г‡Г Г¤Г Г­ГЁГҐ 7
+Г‚Г»ГўГҐГ±ГІГЁ ГўГ±ГҐ Г­Г Г§ГўГ Г­ГЁГї Г±Г Г¬Г®Г«ВёГІГ®Гў, Г­Г  ГЄГ®ГІГ®Г°Г»Гµ Г¬Г®Г¦Г­Г® ГіГ«ГҐГІГҐГІГј Гў ГЊГ®Г±ГЄГўГі (Moscow)
 
 select distinct plane from Trip
 where town_to = 'Moscow'
 
-Задание 8
-В какие города можно улететь из Парижа (Paris) и сколько времени это займёт?
+Г‡Г Г¤Г Г­ГЁГҐ 8
+Г‚ ГЄГ ГЄГЁГҐ ГЈГ®Г°Г®Г¤Г  Г¬Г®Г¦Г­Г® ГіГ«ГҐГІГҐГІГј ГЁГ§ ГЏГ Г°ГЁГ¦Г  (Paris) ГЁ Г±ГЄГ®Г«ГјГЄГ® ГўГ°ГҐГ¬ГҐГ­ГЁ ГЅГІГ® Г§Г Г©Г¬ВёГІ?
 
 SELECT town_to, timediff(time_in, time_out) AS flight_time
 FROM trip JOIN company ON trip.company = company.id
 WHERE trip.town_from = 'Paris';
 
-Задание 9
-Какие компании организуют перелеты с Владивостока (Vladivostok)?
+Г‡Г Г¤Г Г­ГЁГҐ 9
+ГЉГ ГЄГЁГҐ ГЄГ®Г¬ГЇГ Г­ГЁГЁ Г®Г°ГЈГ Г­ГЁГ§ГіГѕГІ ГЇГҐГ°ГҐГ«ГҐГІГ» Г± Г‚Г«Г Г¤ГЁГўГ®Г±ГІГ®ГЄГ  (Vladivostok)?
 
 select name from company join trip on company.id = trip.company
 where town_from = 'Vladivostok'
 
-Задание 10
-Вывести вылеты, совершенные с 10 ч. по 14 ч. 1 января 1900 г.
+Г‡Г Г¤Г Г­ГЁГҐ 10
+Г‚Г»ГўГҐГ±ГІГЁ ГўГ»Г«ГҐГІГ», Г±Г®ГўГҐГ°ГёГҐГ­Г­Г»ГҐ Г± 10 Г·. ГЇГ® 14 Г·. 1 ГїГ­ГўГ Г°Гї 1900 ГЈ.
 
 select * from Trip
 where time_out between '1900-01-01T10:00:00.000Z' and '1900-01-01T14:00:00.000Z'
 
-Задание 11
-Вывести пассажиров с самым длинным именем
+Г‡Г Г¤Г Г­ГЁГҐ 11
+Г‚Г»ГўГҐГ±ГІГЁ ГЇГ Г±Г±Г Г¦ГЁГ°Г®Гў Г± Г±Г Г¬Г»Г¬ Г¤Г«ГЁГ­Г­Г»Г¬ ГЁГ¬ГҐГ­ГҐГ¬
 
 SELECT name
   FROM passenger
  WHERE LENGTH(name) =
        (SELECT MAX (LENGTH (name)) FROM passenger)
 
-Задание 12
-Вывести id и количество пассажиров для всех прошедших полётов
+Г‡Г Г¤Г Г­ГЁГҐ 12
+Г‚Г»ГўГҐГ±ГІГЁ id ГЁ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЇГ Г±Г±Г Г¦ГЁГ°Г®Гў Г¤Г«Гї ГўГ±ГҐГµ ГЇГ°Г®ГёГҐГ¤ГёГЁГµ ГЇГ®Г«ВёГІГ®Гў
 
 select trip, count(id) as count from Pass_in_trip
 group by trip
 
-Задание 13
-Вывести имена людей, у которых есть полный тёзка среди пассажиров
+Г‡Г Г¤Г Г­ГЁГҐ 13
+Г‚Г»ГўГҐГ±ГІГЁ ГЁГ¬ГҐГ­Г  Г«ГѕГ¤ГҐГ©, Гі ГЄГ®ГІГ®Г°Г»Гµ ГҐГ±ГІГј ГЇГ®Г«Г­Г»Г© ГІВёГ§ГЄГ  Г±Г°ГҐГ¤ГЁ ГЇГ Г±Г±Г Г¦ГЁГ°Г®Гў
 
 select name from passenger group by name
 having count(*)>1
 
-Задание 14(объединение трех таблиц)
-В какие города летал Bruce Willis
+Г‡Г Г¤Г Г­ГЁГҐ 14(Г®ГЎГєГҐГ¤ГЁГ­ГҐГ­ГЁГҐ ГІГ°ГҐГµ ГІГ ГЎГ«ГЁГ¶)
+Г‚ ГЄГ ГЄГЁГҐ ГЈГ®Г°Г®Г¤Г  Г«ГҐГІГ Г« Bruce Willis
 
 SELECT town_to FROM trip
 JOIN pass_in_trip ON trip.id = pass_in_trip.trip
 JOIN passenger ON pass_in_trip.passenger = passenger.id
 WHERE passenger.name='Bruce Willis'
 
-Задание 15
-Во сколько Стив Мартин (Steve Martin) прилетел в Лондон (London)
+Г‡Г Г¤Г Г­ГЁГҐ 15
+Г‚Г® Г±ГЄГ®Г«ГјГЄГ® Г‘ГІГЁГў ГЊГ Г°ГІГЁГ­ (Steve Martin) ГЇГ°ГЁГ«ГҐГІГҐГ« Гў Г‹Г®Г­Г¤Г®Г­ (London)
 
 select time_in from trip
 join Pass_in_trip on trip.id = Pass_in_trip.trip
 join passenger on Pass_in_trip.passenger = Passenger.id
 where name = 'Steve Martin' and town_to = 'London'
 
-Задание 16
-Вывести отсортированный по количеству перелетов (по убыванию) и имени (по возрастанию) список пассажиров, совершивших хотя бы 1 полет.
+Г‡Г Г¤Г Г­ГЁГҐ 16
+Г‚Г»ГўГҐГ±ГІГЁ Г®ГІГ±Г®Г°ГІГЁГ°Г®ГўГ Г­Г­Г»Г© ГЇГ® ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГі ГЇГҐГ°ГҐГ«ГҐГІГ®Гў (ГЇГ® ГіГЎГ»ГўГ Г­ГЁГѕ) ГЁ ГЁГ¬ГҐГ­ГЁ (ГЇГ® ГўГ®Г§Г°Г Г±ГІГ Г­ГЁГѕ) Г±ГЇГЁГ±Г®ГЄ ГЇГ Г±Г±Г Г¦ГЁГ°Г®Гў, Г±Г®ГўГҐГ°ГёГЁГўГёГЁГµ ГµГ®ГІГї ГЎГ» 1 ГЇГ®Г«ГҐГІ.
 
 select name, count(trip) as count from passenger
 join pass_in_trip on passenger.id = pass_in_trip.passenger
@@ -104,8 +104,8 @@ group by name
 having count(*) >= 1
 order by count desc, name ASC
 
-Задание 17
-Определить, сколько потратил в 2005 году каждый из членов семьи
+Г‡Г Г¤Г Г­ГЁГҐ 17
+ГЋГЇГ°ГҐГ¤ГҐГ«ГЁГІГј, Г±ГЄГ®Г«ГјГЄГ® ГЇГ®ГІГ°Г ГІГЁГ« Гў 2005 ГЈГ®Г¤Гі ГЄГ Г¦Г¤Г»Г© ГЁГ§ Г·Г«ГҐГ­Г®Гў Г±ГҐГ¬ГјГЁ
 
 select member_name, status, sum(unit_price*amount) as costs from familymembers
 join payments on familymembers.member_id = payments.family_member
@@ -113,16 +113,16 @@ where date between '2005-01-01T00:00:00.000Z' and '2005-12-31T23:59:59.000Z'
 group by member_name, status
 order by costs asc
 
-Задание 19
-Определить, кто из членов семьи покупал картошку (potato)
+Г‡Г Г¤Г Г­ГЁГҐ 19
+ГЋГЇГ°ГҐГ¤ГҐГ«ГЁГІГј, ГЄГІГ® ГЁГ§ Г·Г«ГҐГ­Г®Гў Г±ГҐГ¬ГјГЁ ГЇГ®ГЄГіГЇГ Г« ГЄГ Г°ГІГ®ГёГЄГі (potato)
 
 select distinct status from familymembers
 join payments on familymembers.member_id = payments.family_member
 join goods on payments.good = goods.good_id
 where good_name = 'potato'
 
-Задание 20
-Сколько и кто из семьи потратил на развлечения (entertainment). Вывести статус в семье, имя, сумму
+Г‡Г Г¤Г Г­ГЁГҐ 20
+Г‘ГЄГ®Г«ГјГЄГ® ГЁ ГЄГІГ® ГЁГ§ Г±ГҐГ¬ГјГЁ ГЇГ®ГІГ°Г ГІГЁГ« Г­Г  Г°Г Г§ГўГ«ГҐГ·ГҐГ­ГЁГї (entertainment). Г‚Г»ГўГҐГ±ГІГЁ Г±ГІГ ГІГіГ± Гў Г±ГҐГ¬ГјГҐ, ГЁГ¬Гї, Г±ГіГ¬Г¬Гі
 
 select status, member_name, sum(unit_price*amount) as costs from familymembers
 join payments on familymembers.member_id = payments.family_member
@@ -131,21 +131,21 @@ join goodtypes on goods.type = goodtypes.good_type_id
 where good_type_name = 'entertainment'
 group by status, member_name
 
-Задание 21
-Определить товары, которые покупали более 1 раза
+Г‡Г Г¤Г Г­ГЁГҐ 21
+ГЋГЇГ°ГҐГ¤ГҐГ«ГЁГІГј ГІГ®ГўГ Г°Г», ГЄГ®ГІГ®Г°Г»ГҐ ГЇГ®ГЄГіГЇГ Г«ГЁ ГЎГ®Г«ГҐГҐ 1 Г°Г Г§Г 
 
 select good_name from goods join payments on goods.good_id = payments.good
 group by good_name
 having count(*) > 1
 
-Задание 22
-Найти имена всех матерей (mother)
+Г‡Г Г¤Г Г­ГЁГҐ 22
+ГЌГ Г©ГІГЁ ГЁГ¬ГҐГ­Г  ГўГ±ГҐГµ Г¬Г ГІГҐГ°ГҐГ© (mother)
 
 select member_name from FamilyMembers
 where status = 'mother'
 
-Задание 23
-Найдите самый дорогой деликатес (delicacies) и выведите его стоимость
+Г‡Г Г¤Г Г­ГЁГҐ 23
+ГЌГ Г©Г¤ГЁГІГҐ Г±Г Г¬Г»Г© Г¤Г®Г°Г®ГЈГ®Г© Г¤ГҐГ«ГЁГЄГ ГІГҐГ± (delicacies) ГЁ ГўГ»ГўГҐГ¤ГЁГІГҐ ГҐГЈГ® Г±ГІГ®ГЁГ¬Г®Г±ГІГј
 
 select good_name,unit_price from goods
 join goodtypes on goods.type = goodtypes.good_type_id
@@ -155,8 +155,8 @@ join goods on payments.good = goods.good_id
 join goodtypes on goods.type = goodtypes.good_type_id
 where good_type_name = 'delicacies' )
 
-Задание 24
-Определить кто и сколько потратил в июне 2005
+Г‡Г Г¤Г Г­ГЁГҐ 24
+ГЋГЇГ°ГҐГ¤ГҐГ«ГЁГІГј ГЄГІГ® ГЁ Г±ГЄГ®Г«ГјГЄГ® ГЇГ®ГІГ°Г ГІГЁГ« Гў ГЁГѕГ­ГҐ 2005
 
 select member_name, sum(unit_price*amount) as costs from familymembers
 join payments on familymembers.member_id = payments.family_member
@@ -165,16 +165,16 @@ join goodtypes on goods.type = goodtypes.good_type_id
 where date between '2005-06-01T00:00:00.000Z' and '2005-06-30T23:59:59.000Z'
 group by member_name
 
-Задание 25
-Определить, какие товары имеются в таблице Goods, но не покупались в течение 2005 года
+Г‡Г Г¤Г Г­ГЁГҐ 25
+ГЋГЇГ°ГҐГ¤ГҐГ«ГЁГІГј, ГЄГ ГЄГЁГҐ ГІГ®ГўГ Г°Г» ГЁГ¬ГҐГѕГІГ±Гї Гў ГІГ ГЎГ«ГЁГ¶ГҐ Goods, Г­Г® Г­ГҐ ГЇГ®ГЄГіГЇГ Г«ГЁГ±Гј Гў ГІГҐГ·ГҐГ­ГЁГҐ 2005 ГЈГ®Г¤Г 
 
 SELECT good_name
 FROM Goods
 WHERE good_id not in
 (SELECT good from Payments WHERE YEAR(date) = 2005);
 
-Задание 26
-Определить группы товаров, которые не приобретались в 2005 году
+Г‡Г Г¤Г Г­ГЁГҐ 26
+ГЋГЇГ°ГҐГ¤ГҐГ«ГЁГІГј ГЈГ°ГіГЇГЇГ» ГІГ®ГўГ Г°Г®Гў, ГЄГ®ГІГ®Г°Г»ГҐ Г­ГҐ ГЇГ°ГЁГ®ГЎГ°ГҐГІГ Г«ГЁГ±Гј Гў 2005 ГЈГ®Г¤Гі
 
 SELECT good_type_name
 FROM GoodTypes
@@ -185,8 +185,8 @@ JOIN Payments ON good_id = good AND YEAR(date) = 2005
 JOIN GoodTypes ON good_type_id = type
 )
 
-Задание 27
-Узнать, сколько потрачено на каждую из групп товаров в 2005 году. Вывести название группы и сумму
+Г‡Г Г¤Г Г­ГЁГҐ 27
+Г“Г§Г­Г ГІГј, Г±ГЄГ®Г«ГјГЄГ® ГЇГ®ГІГ°Г Г·ГҐГ­Г® Г­Г  ГЄГ Г¦Г¤ГіГѕ ГЁГ§ ГЈГ°ГіГЇГЇ ГІГ®ГўГ Г°Г®Гў Гў 2005 ГЈГ®Г¤Гі. Г‚Г»ГўГҐГ±ГІГЁ Г­Г Г§ГўГ Г­ГЁГҐ ГЈГ°ГіГЇГЇГ» ГЁ Г±ГіГ¬Г¬Гі
 
 select good_type_name, sum(unit_price*amount) as costs from goodtypes
 join goods on goodtypes.good_type_id = goods.type
@@ -194,14 +194,14 @@ join payments on goods.good_id = payments.good
 where date BETWEEN "2005-01-01T00:00:00.000Z" AND "2005-12-31T00:00:00.000Z"
 group by good_type_name
 
-Задание 28
-Сколько рейсов совершили авиакомпании с Ростова (Rostov) в Москву (Moscow) ?
+Г‡Г Г¤Г Г­ГЁГҐ 28
+Г‘ГЄГ®Г«ГјГЄГ® Г°ГҐГ©Г±Г®Гў Г±Г®ГўГҐГ°ГёГЁГ«ГЁ Г ГўГЁГ ГЄГ®Г¬ГЇГ Г­ГЁГЁ Г± ГђГ®Г±ГІГ®ГўГ  (Rostov) Гў ГЊГ®Г±ГЄГўГі (Moscow) ?
 
 select count(plane) as count from Trip
 where town_from = 'Rostov' and town_to = 'Moscow'
 
-Задание 29
-Выведите имена пассажиров улетевших в Москву (Moscow) на самолете TU-134
+Г‡Г Г¤Г Г­ГЁГҐ 29
+Г‚Г»ГўГҐГ¤ГЁГІГҐ ГЁГ¬ГҐГ­Г  ГЇГ Г±Г±Г Г¦ГЁГ°Г®Гў ГіГ«ГҐГІГҐГўГёГЁГµ Гў ГЊГ®Г±ГЄГўГі (Moscow) Г­Г  Г±Г Г¬Г®Г«ГҐГІГҐ TU-134
 
 select distinct name from passenger
 join pass_in_trip on passenger.id = pass_in_trip.passenger
@@ -209,66 +209,66 @@ join trip on pass_in_trip.trip = trip.id
 where plane = 'TU-134' and town_to = 'Moscow'
 order by name asc
 
-Задание 30
-Выведите нагруженность (число пассажиров) каждого рейса (trip). Результат вывести в отсортированном виде по убыванию нагруженности.
+Г‡Г Г¤Г Г­ГЁГҐ 30
+Г‚Г»ГўГҐГ¤ГЁГІГҐ Г­Г ГЈГ°ГіГ¦ГҐГ­Г­Г®Г±ГІГј (Г·ГЁГ±Г«Г® ГЇГ Г±Г±Г Г¦ГЁГ°Г®Гў) ГЄГ Г¦Г¤Г®ГЈГ® Г°ГҐГ©Г±Г  (trip). ГђГҐГ§ГіГ«ГјГІГ ГІ ГўГ»ГўГҐГ±ГІГЁ Гў Г®ГІГ±Г®Г°ГІГЁГ°Г®ГўГ Г­Г­Г®Г¬ ГўГЁГ¤ГҐ ГЇГ® ГіГЎГ»ГўГ Г­ГЁГѕ Г­Г ГЈГ°ГіГ¦ГҐГ­Г­Г®Г±ГІГЁ.
 
 select distinct trip, count(passenger) as count from pass_in_trip
 group by trip
 order by count desc
 
-Задание 31
-Вывести всех членов семьи с фамилией Quincey.
+Г‡Г Г¤Г Г­ГЁГҐ 31
+Г‚Г»ГўГҐГ±ГІГЁ ГўГ±ГҐГµ Г·Г«ГҐГ­Г®Гў Г±ГҐГ¬ГјГЁ Г± ГґГ Г¬ГЁГ«ГЁГҐГ© Quincey.
 
 select * from FamilyMembers
 where member_name like '%_Quincey'
 
-Задание 34
-Сколько всего 10-ых классов
+Г‡Г Г¤Г Г­ГЁГҐ 34
+Г‘ГЄГ®Г«ГјГЄГ® ГўГ±ГҐГЈГ® 10-Г»Гµ ГЄГ«Г Г±Г±Г®Гў
 
 select count(name) as count from Class
 where name like '10%'
 
-Задание 35
-Сколько различных кабинетов школы использовались 2.09.2019 в образовательных целях ?
+Г‡Г Г¤Г Г­ГЁГҐ 35
+Г‘ГЄГ®Г«ГјГЄГ® Г°Г Г§Г«ГЁГ·Г­Г»Гµ ГЄГ ГЎГЁГ­ГҐГІГ®Гў ГёГЄГ®Г«Г» ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г«ГЁГ±Гј 2.09.2019 Гў Г®ГЎГ°Г Г§Г®ГўГ ГІГҐГ«ГјГ­Г»Гµ Г¶ГҐГ«ГїГµ ?
 
 select distinct count(classroom) as count from Schedule
 where date = '2019-09-02T00:00:00.000Z'
 
-Задание 36
-Выведите информацию об обучающихся живущих на улице Пушкина (ul. Pushkina)?
+Г‡Г Г¤Г Г­ГЁГҐ 36
+Г‚Г»ГўГҐГ¤ГЁГІГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГѕ Г®ГЎ Г®ГЎГіГ·Г ГѕГ№ГЁГµГ±Гї Г¦ГЁГўГіГ№ГЁГµ Г­Г  ГіГ«ГЁГ¶ГҐ ГЏГіГёГЄГЁГ­Г  (ul. Pushkina)?
 
 select * from Student
 where address like 'ul. Pushkina, %'
 
-Задание 38
-Сколько Анн (Anna) учится в школе ?
+Г‡Г Г¤Г Г­ГЁГҐ 38
+Г‘ГЄГ®Г«ГјГЄГ® ГЂГ­Г­ (Anna) ГіГ·ГЁГІГ±Гї Гў ГёГЄГ®Г«ГҐ ?
 
 select count(first_name) as count from Student
 where first_name = 'Anna'
 
-Задание 39
-Сколько обучающихся в 10 B классе ?
+Г‡Г Г¤Г Г­ГЁГҐ 39
+Г‘ГЄГ®Г«ГјГЄГ® Г®ГЎГіГ·Г ГѕГ№ГЁГµГ±Гї Гў 10 B ГЄГ«Г Г±Г±ГҐ ?
 
 select count(student) as count from student_in_class
 join class on student_in_class.class = class.id
 where class.id = 6
 
-Задание 40
-Выведите название предметов, которые преподает Ромашкин П.П. (Romashkin P.P.) ?
+Г‡Г Г¤Г Г­ГЁГҐ 40
+Г‚Г»ГўГҐГ¤ГЁГІГҐ Г­Г Г§ГўГ Г­ГЁГҐ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў, ГЄГ®ГІГ®Г°Г»ГҐ ГЇГ°ГҐГЇГ®Г¤Г ГҐГІ ГђГ®Г¬Г ГёГЄГЁГ­ ГЏ.ГЏ. (Romashkin P.P.) ?
 
 select name as subjects from subject
 join schedule on subject.id = schedule.subject
 join teacher on schedule.teacher = teacher.id
 where last_name = 'Romashkin'
 
-Задания 41
-Во сколько начинается 4-ый учебный предмет по расписанию ?
+Г‡Г Г¤Г Г­ГЁГї 41
+Г‚Г® Г±ГЄГ®Г«ГјГЄГ® Г­Г Г·ГЁГ­Г ГҐГІГ±Гї 4-Г»Г© ГіГ·ГҐГЎГ­Г»Г© ГЇГ°ГҐГ¤Г¬ГҐГІ ГЇГ® Г°Г Г±ГЇГЁГ±Г Г­ГЁГѕ ?
 
 select start_pair from Timepair
 where id = 4
 
-Задание 43
-Выведите фамилии преподавателей, которые ведут физическую культуру (Physical Culture). Остортируйте преподавателей по фамилии.
+Г‡Г Г¤Г Г­ГЁГҐ 43
+Г‚Г»ГўГҐГ¤ГЁГІГҐ ГґГ Г¬ГЁГ«ГЁГЁ ГЇГ°ГҐГЇГ®Г¤Г ГўГ ГІГҐГ«ГҐГ©, ГЄГ®ГІГ®Г°Г»ГҐ ГўГҐГ¤ГіГІ ГґГЁГ§ГЁГ·ГҐГ±ГЄГіГѕ ГЄГіГ«ГјГІГіГ°Гі (Physical Culture). ГЋГ±ГІГ®Г°ГІГЁГ°ГіГ©ГІГҐ ГЇГ°ГҐГЇГ®Г¤Г ГўГ ГІГҐГ«ГҐГ© ГЇГ® ГґГ Г¬ГЁГ«ГЁГЁ.
 
 select last_name from teacher
 join schedule on teacher.id = schedule.teacher
@@ -276,8 +276,8 @@ join subject on schedule.subject = subject.id
 where subject.name = 'Physical Culture'
 order by last_name asc
 
-Задание 46
-В каких классах введет занятия преподаватель "Krauze" ?
+Г‡Г Г¤Г Г­ГЁГҐ 46
+Г‚ ГЄГ ГЄГЁГµ ГЄГ«Г Г±Г±Г Гµ ГўГўГҐГ¤ГҐГІ Г§Г Г­ГїГІГЁГї ГЇГ°ГҐГЇГ®Г¤Г ГўГ ГІГҐГ«Гј "Krauze" ?
 
 select distinct name from class
 join schedule on class.id = schedule.class
@@ -285,16 +285,16 @@ join teacher on schedule.teacher = teacher.id
 where last_name = 'Krauze'
 
 
-Задание 47
-Сколько занятий провел Krauze 30 августа 2019 г.?
+Г‡Г Г¤Г Г­ГЁГҐ 47
+Г‘ГЄГ®Г«ГјГЄГ® Г§Г Г­ГїГІГЁГ© ГЇГ°Г®ГўГҐГ« Krauze 30 Г ГўГЈГіГ±ГІГ  2019 ГЈ.?
 
 select count(number_pair) as count from schedule
 join teacher on schedule.teacher = teacher.id
 where last_name = 'Krauze' and (date between '2019-08-30T00:00:00.000Z' and '2019-08-30T23:59:59.000Z')
 
 
-Задание 48
-Выведите заполненность классов в порядке убывания
+Г‡Г Г¤Г Г­ГЁГҐ 48
+Г‚Г»ГўГҐГ¤ГЁГІГҐ Г§Г ГЇГ®Г«Г­ГҐГ­Г­Г®Г±ГІГј ГЄГ«Г Г±Г±Г®Гў Гў ГЇГ®Г°ГїГ¤ГЄГҐ ГіГЎГ»ГўГ Г­ГЁГї
 
 select name, count(student) as count from class
 join student_in_class on class.id = student_in_class.class
@@ -302,8 +302,8 @@ group by name
 order by count desc
 
 
-Задание 59
-Вывести пользователей,указавших Белорусский номер телефона ? Телефонный код Белоруссии +375.
+Г‡Г Г¤Г Г­ГЁГҐ 59
+Г‚Г»ГўГҐГ±ГІГЁ ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«ГҐГ©,ГіГЄГ Г§Г ГўГёГЁГµ ГЃГҐГ«Г®Г°ГіГ±Г±ГЄГЁГ© Г­Г®Г¬ГҐГ° ГІГҐГ«ГҐГґГ®Г­Г  ? Г’ГҐГ«ГҐГґГ®Г­Г­Г»Г© ГЄГ®Г¤ ГЃГҐГ«Г®Г°ГіГ±Г±ГЁГЁ +375.
 
 select * from Users
 where phone_number like '+375%'
